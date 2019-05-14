@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+    database:
+        image:
+            database
+        container_name:
+            database
+        ports:
+            - "3600:3600"
+
+    admin:
+        depends_on:
+            - database
+        image:
+            administrator
+        container_name:
+            admin
+
+    client:
+        depends_on:
+            - database
+        image:
+            client
+        container_name:
+            client
